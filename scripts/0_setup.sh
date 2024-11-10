@@ -17,8 +17,10 @@ if [ ! -d .dfl/DeepFaceLab ]; then
   git clone --no-single-branch --depth 1 "git@github.com:ruzarx/DeepFaceLab_MacOS.git" .dfl/DeepFaceLab
 
   if is_arm64; then
-    (cd .dfl/DeepFaceLab; git checkout support-arm64)
+    echo "No specific support-arm64 branch found; using the main branch instead."
+    (cd .dfl/DeepFaceLab; git checkout main || git checkout master)
   fi
+
 fi
 
 if [ ! -d .dfl/env ]; then
